@@ -1,4 +1,4 @@
-import {View, TouchableOpacity, Text} from "react-native";
+import {View, TouchableOpacity, Text, Image, Pressable} from "react-native";
 
 export default function App() {
   return (
@@ -14,6 +14,9 @@ export default function App() {
       >
         <Text style={{ color: 'black' }}>Click me</Text>
       </TouchableOpacity>
+      <Pressable onPress={()=> console.log("Button pressed")}>
+      <Image source={require("./assets/adaptive-icon.png")} style={{width: 100, height: 100}} />
+      </Pressable>
     </View>
   );
 }
