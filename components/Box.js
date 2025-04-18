@@ -11,7 +11,7 @@ export default function Box({ children, style }) {
 
 const styles = StyleSheet.create({
     box: {
-        flex: 1,
+        //flex: 1,
         backgroundColor: 'white',
         padding: 10,
         // width: "100%",
