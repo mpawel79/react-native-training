@@ -21,8 +21,11 @@ export default function App() {
 const styles = StyleSheet.create({
     container: {
         // flex: 1,
-        alignContent: 'space-around',
+        // alignContent: 'space-around',
         flexWrap: 'wrap',
+        // rowGap: 20,
+        // columnGap: 20,
+        gap: 10,
         height: 300,
         borderWidth: 6,
         borderColor: 'red',

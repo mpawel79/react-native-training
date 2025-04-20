@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
     box: {
         //flex: 1,
         backgroundColor: 'white',
-        padding: 10,
-        width: "20%",
-        // height: 100,
+        padding: 0,
+        width: "60",
+        height: 60,
         borderRadius: 10,
         margin: 2,
 
