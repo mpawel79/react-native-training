@@ -11,20 +11,16 @@ export default function Box({ children, style }) {
 
 const styles = StyleSheet.create({
     box: {
-        //flex: 1,
         backgroundColor: 'white',
-        padding: 0,
-        //width: "200",
-        height: 60,
-        borderRadius: 10,
-        margin: 2,
-
+        padding: 20,
+       // height: 60,
+        margin: 1,
+        flexGrow: 1,
     },
     text: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         color: 'white',
         textAlign: 'center',
-
     },
-})
+});
