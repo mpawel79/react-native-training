@@ -13,12 +13,12 @@ const styles = StyleSheet.create({
     box: {
         backgroundColor: 'white',
         padding: 20,
-       // height: 60,
-        margin: 1,
-        flexGrow: 1,
+        height: 100,
+        width: 100,
+    
     },
     text: {
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: 'bold',
         color: 'white',
         textAlign: 'center',
