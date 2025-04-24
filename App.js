@@ -1,31 +1,36 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 
 
 export default function App() {
-  const [dimensions, setDimensions] = useState({
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height
-  });
 
-  useEffect(() => {
-    const subscription = Dimensions.addEventListener('change', ({ window }) => {
-      setDimensions({
-        width: window.width,
-        height: window.height
-      });
-    });
-    return () => subscription.remove();
-  }, []);
-
+  const dimensions = useWindowDimensions();
   const windowWidth = dimensions.width;
   const windowHeight = dimensions.height;
+
+  // const [dimensions, setDimensions] = useState({
+  //   width: Dimensions.get('window').width,
+  //   height: Dimensions.get('window').height
+  // });
+
+  // useEffect(() => {
+  //   const subscription = Dimensions.addEventListener('change', ({ window }) => {
+  //     setDimensions({
+  //       width: window.width,
+  //       height: window.height
+  //     });
+  //   });
+  //   return () => subscription.remove();
+  // }, []);
+
+  // const windowWidth = dimensions.width;
+  // const windowHeight = dimensions.height;
 
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <Text style={{fontSize: windowWidth > 500 ? 50 : 18}}>Hello</Text>
+        <Text style={{fontSize: windowWidth > 500 ? 150 : 18}}>Hello</Text>
       </View>
     </View>
   );
