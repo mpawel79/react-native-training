@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { StyleSheet, Text, View, useWindowDimensions , SafeAreaView} from 'react-native';
 
 
 export default function App() {
@@ -28,11 +28,11 @@ export default function App() {
   // const windowHeight = dimensions.height;
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.safeContainer}>
       <View style={styles.box}>
-        <Text style={{fontSize: windowWidth > 500 ? 150 : 18}}>Hello</Text>
+        <Text style={[ styles.text, {fontSize: windowWidth > 500 ? 150 : 18}]}>Welcome</Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -40,21 +40,23 @@ export default function App() {
 // const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    backgroundColor: 'lightblue',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'plum',
+
   },
   box: {
     // width: windowWidth > 500 ? "70%" : "90%",
     // height: windowHeight > 500 ? "70%" : "90%",
-    backgroundColor: 'lightblue',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
   },
-  // text: {
-  //   fontSize: 24,
-  //   fontWeight: 'bold',
-  // },
+  text: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
