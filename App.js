@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, useWindowDimensions , SafeAreaView} from 'react-native';
 
-
+import CustomButton from './components/CustomButton/CustomButton';
 export default function App() {
 
   const dimensions = useWindowDimensions();
@@ -31,6 +31,7 @@ export default function App() {
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.box}>
         <Text style={[ styles.text, {fontSize: windowWidth > 500 ? 150 : 18}]}>Welcome</Text>
+        <CustomButton text="Click me" onPress={() => alert('Button pressed')} />
       </View>
     </SafeAreaView>
   );
@@ -55,8 +56,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   text: {
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 10,
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: Platform.OS === 'android' ?  'white' : 'black',
   },
 });
