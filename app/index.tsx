@@ -29,6 +29,7 @@ export default function App() {
           )
         }}
         keyExtractor={(item, index) => item.id.toString()}
+        ItemSeparatorComponent={() => <View style={{ height: 5}} />}
         horizontal={false}
       />  
     </SafeAreaView>
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 10,
-    marginBottom: 10,
+    // marginBottom: 10,
     borderWidth: 1,
     borderColor: '#000',
   },
