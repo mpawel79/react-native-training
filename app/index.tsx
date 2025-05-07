@@ -1,6 +1,5 @@
 import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import pokemonList from "./data.json";
-
 export default function App() {
 
 
@@ -29,8 +28,11 @@ export default function App() {
           )
         }}
         keyExtractor={(item, index) => item.id.toString()}
+        ListHeaderComponent={() => <Text style={{ paddingTop: 100, textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>Header</Text>}
         ItemSeparatorComponent={() => <View style={{ height: 5}} />}
+        ListEmptyComponent={() => <Text style={{ paddingTop: 100, textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>No data</Text>}
         horizontal={false}
+        ListFooterComponent={() => <Text style={{ paddingBottom: 100, textAlign: 'center', fontSize: 20, fontWeight: 'bold' }}>End of list</Text>}
       />  
     </SafeAreaView>
   );
