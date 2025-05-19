@@ -2,14 +2,17 @@ import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 
 export default function AboutScreen({ navigation, route }) {
+  const name = route.params?.name;
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>About Screen</Text>
+      <Text style={styles.text}>About {name}</Text>
       <Button
         title="Go to Home"
         onPress={() => navigation.navigate("Home", { name: "Vishwas" })}
       />
       <Text style={styles.text}>Result: {route.params?.result}</Text>
+      <Button title="Update the name" onPress={() => navigation.setParams({name: "Codevolution"})}/>
+      <Button title="Go back with data" onPress={() => navigation.navigate("Home", {result: "Data from About"})}/>
     </View>
   );
 }
