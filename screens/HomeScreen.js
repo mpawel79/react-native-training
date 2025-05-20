@@ -12,9 +12,11 @@ export default function HomeScreen({ navigation, route }) {
       <Text style={styles.text}>{route.params?.result}</Text>
       <Button
         title="Go to About"
-        onPress={() => navigation.navigate("About", {name: "Vishwas"})}
+        onPress={() => navigation.navigate("About", {name: "Vishwklas"})}
       />
       <Text style={styles.text}>Result: {route.params?.result}</Text>
+      <Button title="Go to About1" onPress={() => navigation.navigate("About", {name: "Vishwasjjj2"})}/>
+
     </View>
   );
 }
