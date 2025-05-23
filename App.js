@@ -1,78 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-// Import screens
 import HomeScreen from './screens/HomeScreen';
-import DashboardScreen from './screens/DashboardScreen';
 import SettingsScreen from './screens/SettingsScreen';
-import AboutScreen from './screens/AboutScreen';
+import { Ionicons } from '@expo/vector-icons';
 
-const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen 
-            name="Home" 
-            component={HomeScreen} 
-            options={{ 
-              title: 'Home2', 
-              drawerLabel: 'Home2', 
-              drawerActiveBackgroundColor: 'red',
-              drawerIcon: ({ color, size }) => (
-                <Image source={require('./assets/favicon.png')} style={{ width: size, height: size }} />
-              )
-            }} 
-          />
-          <Drawer.Screen 
-            name="Dashboard" 
-            component={DashboardScreen} 
-            options={{ 
-              title: 'Dashboard2', 
-              drawerLabel: 'Dashboard2',
-              drawerIcon: ({ color, size }) => (
-                <Image source={require('./assets/favicon.png')} style={{ width: size, height: size }} />
-              )
-            }} 
-          />
-          <Drawer.Screen 
-            name="Settings" 
-            component={SettingsScreen} 
-            options={{ 
-              title: 'Settings2', 
-              drawerLabel: 'Settings2',
-              drawerIcon: ({ color, size }) => (
-                <Image source={require('./assets/favicon.png')} style={{ width: size, height: size }} />
-              )
-            }} 
-          />
-          <Drawer.Screen 
-            name="About" 
-            component={AboutScreen} 
-            options={{ 
-              title: 'About2', 
-              drawerLabel: 'About2',
-              drawerIcon: ({ color, size }) => (
-                <Image source={require('./assets/favicon.png')} style={{ width: size, height: size }} />
-              )
-            }} 
-          />
-        </Drawer.Navigator>
-      </NavigationContainer>
-    </GestureHandlerRootView>
+    <NavigationContainer>
+      <Tab.Navigator screenOptions={{ 
+        tabBarLabelPosition: "beside-icon", 
+     
+        tabBarActiveTintColor : 'blue'}}>
+        <Tab.Screen name="Home" component={HomeScreen} 
+        options={{ headerShown: false, tabBarIcon: ({ color, size }) => <Ionicons name="person" color={color} size={size} />, tabBarActiveTintColor: 'red' ,
+        tabBarIcon: ()=> <Ionicons name="home" color="red" size={24} />}} />
+        <Tab.Screen  name="Settings" component={SettingsScreen} 
+        options={{ tabBarBadge: 3, tabBarBadgeStyle: { backgroundColor: 'red', color: 'white' },  headerShown: false, tabBarIcon: ({ color, size }) => <Ionicons name="person" color={color} size={size} /> }} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
